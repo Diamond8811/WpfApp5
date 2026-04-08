@@ -56,5 +56,15 @@ namespace WpfApp5.Pages
         {
 
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddEditPage(new Product()));
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectProduct = ProductList.SelectedItem as Product;
+        }
     }
 }

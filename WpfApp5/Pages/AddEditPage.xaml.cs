@@ -21,7 +21,8 @@ namespace WpfApp5.Pages
     /// </summary>S
     public partial class AddEditPage : Page
     {
-        public AddEditPage()
+        Product product;
+        public AddEditPage(Product _product)
         {
             InitializeComponent();
             UnitCb.ItemsSource = Connect.connect.Units.ToList();
@@ -32,16 +33,36 @@ namespace WpfApp5.Pages
             ManufactCb.DisplayMemberPath= "Name";
             CategoryCb.ItemsSource= Connect.connect.Category.ToList();
             CategoryCb.DisplayMemberPath = "Name";
+            product = _product;
+            this.DataContext = product;
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
+            try
 
+            {
+                product.Units_Id = (UnitCb.SelectedItem as Units).Id;
+                product.Supplier_Id = (SupplierCb.SelectedItem as Supplier).Id;
+                product.Manufacturer_Id = (ManufactCb.SelectedItem as Manufacturer).Id;
+                product.Product_Categories_Id = (CategoryCb.SelectedItem as Category).Id;
+                if (product.Article == "")
+                {
+                    Connect.connect.Product.Add(product);
+                }
+                Connect.connect.SaveChanges();
+                MessageBox.Show("Операция прошла успешно!");
+                NavigationService.Navigate(new ProductListPage());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CanselBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ProductListPage());
         }
     }
 }
