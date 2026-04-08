@@ -22,7 +22,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Ед. измерения</TextBlock>
-                <ComboBox x:Name="UnitCb" Text="{Binding Unit}"></ComboBox>
+                <ComboBox x:Name="UnitCb" SelectedItem="{Binding Units}"></ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
@@ -32,24 +32,24 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Поставщик</TextBlock>
-                <ComboBox x:Name="SupplierCb" Text="{Binding Supplier}"></ComboBox>
+                <ComboBox x:Name="SupplierCb" SelectedItem="{Binding Supplier}"></ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Производитель</TextBlock>
-                <ComboBox x:Name="ManufactCb" Text="{Binding Manufacturer}"></ComboBox>
+                <ComboBox x:Name="ManufactCb" SelectedItem="{Binding Manufacturer}"></ComboBox>
 
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Категория</TextBlock>
-                <ComboBox x:Name="CategoryCb" Text="{Binding Category}"></ComboBox>
+                <ComboBox x:Name="CategoryCb" SelectedItem="{Binding Category}"></ComboBox>
 
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock>Скидка</TextBlock>
-                <TextBox Text="{Binding Discount}"/>
+                <TextBox Text="{Binding Current_Discount}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">

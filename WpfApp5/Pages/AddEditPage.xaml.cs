@@ -22,6 +22,7 @@ namespace WpfApp5.Pages
     public partial class AddEditPage : Page
     {
         Product product;
+        bool isAdd = false;
         public AddEditPage(Product _product)
         {
             InitializeComponent();
@@ -35,6 +36,11 @@ namespace WpfApp5.Pages
             CategoryCb.DisplayMemberPath = "Name";
             product = _product;
             this.DataContext = product;
+
+            if (product.Article == "" || product.Article == null)
+            {
+                isAdd = true;
+            }
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
@@ -46,7 +52,7 @@ namespace WpfApp5.Pages
                 product.Supplier_Id = (SupplierCb.SelectedItem as Supplier).Id;
                 product.Manufacturer_Id = (ManufactCb.SelectedItem as Manufacturer).Id;
                 product.Product_Categories_Id = (CategoryCb.SelectedItem as Category).Id;
-                if (product.Article == "")
+                if (isAdd)
                 {
                     Connect.connect.Product.Add(product);
                 }

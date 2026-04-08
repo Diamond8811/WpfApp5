@@ -65,6 +65,14 @@ namespace WpfApp5.Pages
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             var selectProduct = ProductList.SelectedItem as Product;
+            if (selectProduct != null)
+            {
+                NavigationService.Navigate(new AddEditPage(selectProduct));
+            }
+            else 
+            {
+                MessageBox.Show("Необходимо выбрать продукт");
+            }
         }
     }
 }
